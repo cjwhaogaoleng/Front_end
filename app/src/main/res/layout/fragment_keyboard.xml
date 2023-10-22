@@ -239,7 +239,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                android:onClick="@{(view)->kb_click.click(view)}"
-                android:text="➗"
+                android:text="÷"
                 android:textAllCaps="false" />
 
         </LinearLayout>

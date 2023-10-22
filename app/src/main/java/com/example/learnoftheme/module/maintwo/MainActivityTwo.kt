@@ -49,8 +49,6 @@ class MainActivityTwo : AppCompatActivity() {
         var myViewPagerAdapter = MyViewPagerAdapter(supportFragmentManager, lifecycle, data)
 
         binding.vpMain.adapter = myViewPagerAdapter
-
-
     }
 
 

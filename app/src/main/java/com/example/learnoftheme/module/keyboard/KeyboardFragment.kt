@@ -133,7 +133,7 @@ class KeyboardFragment : Fragment() {
                     canOpe = true
                 }
                 //4
-                "+", "-", "×", "➗" -> {
+                "+", "-", "×", "÷" -> {
                     //说明之前一直在输入数字
                     if (canOpe) {
                         input += (view).text
@@ -378,7 +378,6 @@ class KeyboardFragment : Fragment() {
         var bean: DataBean = DataBean()
         var thread = Thread {
             val response = call?.execute()
-
             bean =
                 Gson().fromJson<DataBean>(response!!.body()!!.string(), DataBean::class.java)
 
@@ -387,7 +386,6 @@ class KeyboardFragment : Fragment() {
                     bean.result
             }
         }.start()
-
     }
 
 }
