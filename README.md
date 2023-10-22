@@ -1,8 +1,8 @@
 # Front_end
 1. 布局介绍
-    1. 主要activity中
+- 主要activity中
        
-       ```xml
+```xml
        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,11 +37,13 @@
             android:paddingTop="30sp"
             android:paddingBottom="30sp"/>
       </LinearLayout>
-      ```
+```
+
 在viewpager2中嵌套我们的计算器和历史记录来实现滑动效果
 
-    2. 计算器
-    ```xml
+- 计算器
+
+```xml
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,17 +99,11 @@
 
         </LinearLayout>
 ```
+
 这是一行的布局，通过linearlayout线性布局即可
 
-
-    3. 历史记录
-       
-       
+- 历史记录
     
-       
-
-    
-
 ```xml
 <FrameLayout
         android:layout_width="match_parent"
@@ -123,9 +119,10 @@
     </FrameLayout>
 ```
 只有listview
-2. 前后端对接
-    我们使用源生Okhttp
-    ```kotlin
+
+2. 前后端对接，我们使用源生Okhttp
+
+```kotlin
     @RequiresApi(Build.VERSION_CODES.P)
     private fun getResult(view: View, deg: String) {
 
@@ -154,11 +151,14 @@
             }
         }.start()
     }
-    ```
-    这是异步获取计算结果的方法，以及利用Gson自己转换json数据，在进入主线程将数据共享
+```
+
+这是异步获取计算结果的方法，以及利用Gson自己转换json数据，在进入主线程将数据共享
+    
 3. 数据共享
    采用viewModel完成activity和fragment的数据共享
-   ```kotlin
+   
+```kotlin
 class MainSharedViewModel : ViewModel() {
 
     var input:MutableLiveData<String> = MutableLiveData<String>()
@@ -167,10 +167,12 @@ class MainSharedViewModel : ViewModel() {
 
     var result: MutableLiveData<String> = MutableLiveData()
 }
-   ```
+```
+
 这里在viewModel中简单设置变量
 在activity和fragment中获取该viewModel
 通过为每个变量设计observer监听数据改变，并完成实时更新UI
+
 ```kotlin
 viewModel.input.observe(this
             ) {
